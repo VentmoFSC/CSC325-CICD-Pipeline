@@ -24,7 +24,7 @@ jobs:
         run: |
           python manage.py test
 
--name:  Deploy
-run: 
+      - name:  Deploy
+        run: 
         echo "Deploying the application..."
         #add your deployment commands here
