@@ -17,3 +17,17 @@ class ViewTests(SimpleTestCase):
         self.assertContains(response, "About Page")
         self.assertContains(response, "This is the about page")
 
+        
+class APIStatusTests(SimpleTestCase):
+
+    def test_api_status_returns_200(self):
+        response = self.client.get(reverse("api_status"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_api_status_returns_expected_json(self):
+        response = self.client.get(reverse("api_status"))
+
+        self.assertEqual(response.json(), {
+            "status": "success",
+            "message": "CSC325 CI/CD Pipeline API is running"
+        })

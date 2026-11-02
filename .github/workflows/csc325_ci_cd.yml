@@ -1,7 +1,12 @@
 name: CI/CD Pipeline for CSC325
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
 
 jobs: 
   build:
